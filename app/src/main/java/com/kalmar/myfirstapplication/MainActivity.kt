@@ -1,45 +1,32 @@
 package com.kalmar.myfirstapplication
 
 import android.os.Bundle
-import android.util.Log
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 private const val MY_OWN_LOG_TAG = "MyOwnLog"
+private const val IMAGE_BEFORE_TEXT = 0
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d(MY_OWN_LOG_TAG, "Стелется по ветру")
+        val bigRedButton: Button = findViewById(R.id.big_red_button)
+        bigRedButton.setOnClickListener {
+            val toast = Toast.makeText(this, getString(R.string.marvin_message), Toast.LENGTH_LONG)
+            val toastContainer = toast.view as LinearLayout
+
+            val toastTextView = toastContainer.getChildAt(0) as TextView
+            toastTextView.textSize = 16f
+
+            toastContainer.orientation = LinearLayout.HORIZONTAL
+            val marvinImage = ImageView(this)
+            marvinImage.setImageResource(R.drawable.marvin)
+            toastContainer.addView(marvinImage, IMAGE_BEFORE_TEXT)
+
+            toast.show()
+
+        }
     }
 
-    override fun onStart() {
-        super.onStart()
-//        Log.d(MY_OWN_LOG_TAG, "onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(MY_OWN_LOG_TAG, "Дым над вершиной Фудзи.")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(MY_OWN_LOG_TAG, "В небо уносится")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(MY_OWN_LOG_TAG,"И пропадает бесследно,")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-//    Log.d(MY_OWN_LOG_TAG, "onRestart")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(MY_OWN_LOG_TAG, "Словно кажет мне путь.")
-    }
 }

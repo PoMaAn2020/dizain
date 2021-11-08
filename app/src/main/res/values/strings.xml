@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MyFirstApplication</string>
     <string name="button">BUTTON</string>
-    <string name="Header">Hello</string>
-    <string name="Footer">Bye</string>
+    <string name="Header">The Big Red Button</string>
+    <string name="do_not_press_text">Do Not Press!!!</string>
+    <string name="marvin_message">Your request to destroy your planet\nhas been accepted and will be processed\non a first-come, first-served basis.</string>
 </resources>
